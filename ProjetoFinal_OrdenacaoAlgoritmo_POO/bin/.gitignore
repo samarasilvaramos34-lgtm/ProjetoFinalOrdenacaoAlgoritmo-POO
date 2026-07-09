@@ -1,2 +1,7 @@
 /module-info.class
 /view/
+/controller/
+/model/
+/service/
+/util/
+/main/
