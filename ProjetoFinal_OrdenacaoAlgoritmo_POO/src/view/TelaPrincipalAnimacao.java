@@ -20,6 +20,9 @@ import java.util.Random;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Font;
+import javax.swing.ImageIcon;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 public class TelaPrincipalAnimacao extends JFrame {
 
@@ -32,6 +35,7 @@ public class TelaPrincipalAnimacao extends JFrame {
 	private JLabel lblTrocas;
 	private JLabel lblTempo;
 	private JSlider slider = new JSlider();
+	
 
 	/**
 	 * Launch the application.
@@ -56,6 +60,7 @@ public class TelaPrincipalAnimacao extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 759, 677);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(203, 203, 228));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -66,15 +71,24 @@ public class TelaPrincipalAnimacao extends JFrame {
 		contentPane.add(comboBox);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 722, 53);
-		panel.setBackground(new Color(128, 128, 255));
+		panel.setBounds(0, 0, 745, 53);
+		panel.setBackground(new Color(255, 255, 255));
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("VISUALIZADOR DE ALGORITMO DE ORDENAÇÃO");
-		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblNewLabel.setBounds(186, 0, 366, 37);
+		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		lblNewLabel.setBounds(100, 10, 410, 37);
 		panel.add(lblNewLabel);
+		
+		ImageIcon icon = new ImageIcon(TelaPrincipalAnimacao.class.getResource("/imagens/grafico.png"));
+
+		Image imagem = icon.getImage().getScaledInstance(80, 40, Image.SCALE_SMOOTH);
+
+		JLabel lblNewLabel_6 = new JLabel();
+		lblNewLabel_6.setIcon(new ImageIcon(imagem));
+		lblNewLabel_6.setBounds(10, 10, 80, 40);
+		panel.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_1 = new JLabel("Algoritmo:");
 		lblNewLabel_1.setBounds(20, 75, 89, 14);
@@ -113,7 +127,7 @@ public class TelaPrincipalAnimacao extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Iniciar");
-		btnNewButton_1.setBounds(157, 226, 84, 20);
+		btnNewButton_1.setBounds(176, 226, 84, 20);
 		btnNewButton_1.setForeground(new Color(64, 0, 128));
 		btnNewButton_1.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -140,7 +154,7 @@ public class TelaPrincipalAnimacao extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Reiniciar");
-		btnNewButton_2.setBounds(269, 226, 84, 20);
+		btnNewButton_2.setBounds(298, 226, 84, 20);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vetor = null;
@@ -156,7 +170,7 @@ public class TelaPrincipalAnimacao extends JFrame {
 		
 		slider = new JSlider();
 		slider.setToolTipText("");
-		slider.setBounds(91, 151, 200, 25);
+		slider.setBounds(91, 149, 200, 20);
 		slider.setMinimum(1);
 		slider.setMaximum(100);
 		slider.setValue(50); // velocidade inicial
@@ -164,9 +178,10 @@ public class TelaPrincipalAnimacao extends JFrame {
 		
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(20, 256, 675, 196);
-		panel_1.setBackground(new Color(179, 231, 255));
+		panel_1.setBounds(45, 256, 675, 196);
+		panel_1.setBackground(new Color(128, 128, 192));
 		contentPane.add(panel_1);
+		panel_1.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 532, 675, 98);
@@ -197,12 +212,16 @@ public class TelaPrincipalAnimacao extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Rápida");
-		lblNewLabel_5.setBounds(255, 173, 44, 12);
+		lblNewLabel_5.setBounds(254, 173, 44, 12);
 		contentPane.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_7 = new JLabel("");
+		lblNewLabel_7.setBounds(425, 23, 292, 427);
+		contentPane.add(lblNewLabel_7);
+		lblNewLabel_7.setIcon(new ImageIcon(TelaPrincipalAnimacao.class.getResource("/imagens/imagem2.png")));
 
 	}//fim do construtor
 	private void adicionarMensagem(String mensagem) {
 		txtMensagens.append(mensagem + "\n");
 	}
-
 }
