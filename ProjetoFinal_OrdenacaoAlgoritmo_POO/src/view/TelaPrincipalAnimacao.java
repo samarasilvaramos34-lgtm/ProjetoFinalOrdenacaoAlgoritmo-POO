@@ -178,11 +178,14 @@ public class TelaPrincipalAnimacao extends JFrame {
 
 				try {
     				MotorOrdenacao motor = new MotorOrdenacao();
-   				 	// motor.ordenar(vetor, algoritmo);
+    				System.out.println(">>> Biblioteca nativa carregada com sucesso!");
+					motor.init();
+    				motor.ordenar(vetor, algoritmo);
+    				System.out.println(">>> ordenar() chamado sem erro.");
 				} catch (LinkageError er) {
-    				// esperado até a lib .so existir — não quebra o resto da aplicação
+    				System.out.println(">>> FALHOU ao carregar/chamar o motor nativo:");
+    				er.printStackTrace();
 				}
-
 				long inicio = System.currentTimeMillis();
 
 				Estatisticas estatisticas = new Estatisticas();
