@@ -30,6 +30,7 @@ import javax.swing.border.TitledBorder;
 
 import controller.OrdenacaoController;
 import model.Estatisticas;
+import model.MotorOrdenacao;
 
 import javax.swing.border.EtchedBorder;
 
@@ -174,6 +175,13 @@ public class TelaPrincipalAnimacao extends JFrame {
 				adicionarMensagem("Executando " + algoritmo + "...");
 				adicionarMensagem("Velocidade: " + velocidade);
 				//integração com o C++
+
+				try {
+    				MotorOrdenacao motor = new MotorOrdenacao();
+   				 	// motor.ordenar(vetor, algoritmo);
+				} catch (LinkageError er) {
+    				// esperado até a lib .so existir — não quebra o resto da aplicação
+				}
 
 				long inicio = System.currentTimeMillis();
 
