@@ -270,10 +270,7 @@ public class TelaPrincipalAnimacao extends JFrame {
 				panel_2.add(lblComparacoes);
 				lblComparacoes.setFont(new Font("Segoe UI", Font.BOLD, 12));
 
-		ImageIcon icon1 = new ImageIcon(
-		        TelaPrincipalAnimacao.class.getResource("/imagens/OIP-_4_.png"));
-
-		Image img = icon1.getImage().getScaledInstance(60, 20, Image.SCALE_SMOOTH);
+		
 	}//fim do construtor
 	
 	//PESSOAL DE GC!!!!
