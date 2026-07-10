@@ -27,6 +27,10 @@ import java.awt.Image;
 import javax.swing.SwingConstants;
 
 import javax.swing.border.TitledBorder;
+
+import controller.OrdenacaoController;
+import model.Estatisticas;
+
 import javax.swing.border.EtchedBorder;
 
 public class TelaPrincipalAnimacao extends JFrame {
@@ -170,9 +174,30 @@ public class TelaPrincipalAnimacao extends JFrame {
 				adicionarMensagem("Executando " + algoritmo + "...");
 				adicionarMensagem("Velocidade: " + velocidade);
 				//integração com o C++
-				
-				
-				
+
+				long inicio = System.currentTimeMillis();
+
+				Estatisticas estatisticas = new Estatisticas();
+				OrdenacaoController controller = new OrdenacaoController();
+
+				switch(algoritmo) {
+					case "Bubble Sort":
+						controller.bubbleSort(vetor, estatisticas);
+						break;
+					case "Insertion Sort":
+						controller.insertionSort(vetor, estatisticas);
+						break;
+					case "Selection Sort":
+						controller.selectionSort(vetor, estatisticas);
+					break;
+				}
+
+				estatisticas.setTempoMs(System.currentTimeMillis() - inicio);
+
+				lblComparacoes.setText(String.valueOf(estatisticas.getComparacoes()));
+				lblTrocas.setText(String.valueOf(String.valueOf(estatisticas.getTrocas())));
+				lblTempo.setText(estatisticas.getTempoMs() + " ms");
+				adicionarMensagem(algoritmo + " concluído!");			
 			}
 			
 		});
